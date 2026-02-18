@@ -6,7 +6,9 @@ Several retrospective research articles reported the phenomenon of “diminished
 ## 2. Introduction of this Computational Method:
 One potential candidate to address this question is the hybrid estimator (Zhan et al., 2024). This approach leverages both double Bootstrap techniques and shrinkage estimators to balance of the reduction of both bias and mean squared error (MSE) when estimating the efficacy of the selected group. It accommodates general settings with multiple (more than two) groups based on either subject-level data or group-level summary data, as well as homogeneous or heterogeneous variance between treatment groups.
 
-## 3.Illustration of this Computational Method:
+## 3. Illustration of this Computational Method:
+
+### 3.1. Problem Setup:
 Consider a Phase 2 study with $I$ active treatment groups and $n_i$ patients randomized to the $i$ th treatment group, for $i = 1, \cdots, I$. We assume the response $X_{i, j}$ of the treatment group $i$, for $i = 1, \cdots, I$, and the subject $j$, for $j = 1, \cdots, n_i$, follows a Normal distribution,
 
 $$X_{i, j} \sim \mathcal{N}\left(\theta_i, \sigma_i^2\right),$$
@@ -19,11 +21,38 @@ The corresponding statistical question is to use observed data $\left( X_1, \cdo
 
 $$\theta_{max} = \max(\theta_1, \cdots, \theta_I). $$
 
+### 3.2. A Traditional Estimator $\widehat{\theta}$:
 A traditional estimator $\widehat{\theta}$ is commonly used in practice to estimate $\theta_{max}$:
 
 $$\widehat{\theta}(\boldsymbol{X}) = \max\left[\widetilde{\theta}(\boldsymbol{X}_1), \cdots, \widetilde{\theta}(\boldsymbol{X}_I)\right], $$
 
 where $\widetilde{\theta}(x)$ is the sample mean of $x$, and $\widetilde{\theta}(X_i)$ as an unbiased estimator of $\theta_i$. However, $\widehat{\theta}(\boldsymbol{X})$ may overestimate $\theta_{max}$ in finite-samples. Even though $\widetilde{\theta}(\boldsymbol{X}_i)$ can accurately estimate $\theta_i$ with no bias for each treatment group $i$, one does not know which treatment group has the highest true response mean $\theta_i$ in (\ref{equ:theta_max}) based on observed data.
+
+### 3.3. The Double Bootstrap Estimator $\widehat{\theta}^{(2)}(X)$:
+Suppose that we have $\widehat{\theta}(X)$ as an initial estimator of $\theta_{max}$. Its bias at $\theta_0$ is denoted as $A(\theta_0)$,
+
+$$A(\theta_0) = E\left[\widehat{\theta}(\boldsymbol{X}) \right] - \theta_0.$$
+
+Since the true value $\theta_0$ of $\theta_{max}$ is to be estimated and the functional form of $A(\cdot)$ is usually unknown, one can use $\widehat{A}\left[\widehat{\theta}(X) \right]$ to approximate $A(\theta_0)$,
+
+$$\widehat{A}\left[\widehat{\theta}(\boldsymbol{X}) \right] = \widehat{E}\left[\widehat{\theta}(\boldsymbol{X}_B) \right] - \widehat{\theta}(\boldsymbol{X}), $$
+
+where $\widehat{E}$ is the empirical expectation based on Monte Carlo Bootstrap data $\boldsymbol{X}_B$ with size $B$. The single Bootstrap estimator $\widehat{\theta}^{(1)}(X)$ can then be constructed as,
+
+$$\widehat{\theta}^{(1)}(\boldsymbol{X}) = \widehat{\theta}(\boldsymbol{X}) - \widehat{A}\left[\widehat{\theta}(\boldsymbol{X}) \right]. $$
+
+To further reduce bias, we can iteratively apply the above approach with $\widehat{\theta}^{(1)}(X)$ as the initial estimator to obtain the double Bootstrap estimator $\widehat{\theta}^{(2)}(X)$.
+
+### 3.4. The Double Bootstrap Estimator $\widehat{\theta}^{(2)}(X)$:
+The following shrinkage estimator is commonly used to reduce MSE when estimating $\theta_{max}$.
+
+$$\widehat{\theta}_{S}(X) = C_{+} \widehat{\theta}(X) + \left(1-C_{+}\right) \widetilde{\theta}(X) $$
+
+$$ C_{+} = \max(0, C) $$
+
+$$ C = 1- \frac{(I-1)\sigma^2}{\sum_{i=1}^I n_i\left[\widetilde{\theta}(X_i) - \widetilde{\theta}(X)\right]^2} $$
+
+
 
 
 
