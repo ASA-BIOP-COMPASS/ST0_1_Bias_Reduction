@@ -1,10 +1,10 @@
 # A Hybrid Estimator to Reduce Selection Bias when Designing Phase 3 Studies
 
 ## 1. The Motivating Question:
-Several retrospective research articles reported the phenomenon of “diminished treatment effect in Phase 3” based on many case studies. The commonly used estimator does not adjust for the selection bias of the proceeding Phase 2 study with multiple groups, and substantially overestimates the efficacy of selected group(s). Such an optimistic assumption may mislead the design of Phase 3 without sufficient power to demonstrate potential treatment effects. 
+Several retrospective research articles reported the phenomenon of “diminished treatment effect in Phase 3” based on multiple case studies. The commonly used estimator does not adjust for the selection bias of the preceding Phase 2 study with multiple groups, and substantially overestimates the efficacy of selected group(s). Such an optimistic assumption may mislead the design of Phase 3 without sufficient power to demonstrate potential treatment effects. 
 
 ## 2. Introduction of this Computational Method:
-One potential candidate to address this question is the hybrid estimator (Zhan et al., 2024). This approach leverages both double Bootstrap techniques and shrinkage estimators to balance of the reduction of both bias and mean squared error (MSE) when estimating the efficacy of the selected group. It accommodates general settings with multiple (more than two) groups based on either subject-level data or group-level summary data, as well as homogeneous or heterogeneous variance between treatment groups.
+One potential candidate to address this question is the hybrid estimator (Zhan et al., 2024). This approach leverages both double Bootstrap techniques and shrinkage estimators to achieve a balance in the reduction of both bias and mean squared error (MSE) when estimating the efficacy of the selected group. It accommodates general settings with multiple (more than two) groups based on either subject-level data or group-level summary data, as well as homogeneous or heterogeneous variance between treatment groups.
 
 ## 3. Illustration of this Computational Method:
 
@@ -26,7 +26,7 @@ A traditional estimator $\widehat{\theta}$ is commonly used in practice to estim
 
 $$\widehat{\theta}(\boldsymbol{X}) = \max\left[\widetilde{\theta}(\boldsymbol{X}_1), \cdots, \widetilde{\theta}(\boldsymbol{X}_I)\right], $$
 
-where $\widetilde{\theta}(x)$ is the sample mean of $x$, and $\widetilde{\theta}(X_i)$ as an unbiased estimator of $\theta_i$. However, $\widehat{\theta}(\boldsymbol{X})$ may overestimate $\theta_{max}$ in finite-samples. Even though $\widetilde{\theta}(\boldsymbol{X}_i)$ can accurately estimate $\theta_i$ with no bias for each treatment group $i$, one does not know which treatment group has the highest true response mean $\theta_i$ in (\ref{equ:theta_max}) based on observed data.
+where $\widetilde{\theta}(x)$ is the sample mean of $x$, and $\widetilde{\theta}(X_i)$ is an unbiased estimator of $\theta_i$. However, $\widehat{\theta}(\boldsymbol{X})$ may overestimate $\theta_{max}$ in finite-samples. Even though $\widetilde{\theta}(\boldsymbol{X}_i)$ can accurately estimate $\theta_i$ with no bias for each treatment group $i$, one does not know which treatment group has the highest true response mean $\theta_i$ in (\ref{equ:theta_max}) based on observed data.
 
 ### 3.3. The Double Bootstrap Estimator $\widehat{\theta}^{(2)}(X)$:
 Suppose that we have $\widehat{\theta}(X)$ as an initial estimator of $\theta_{max}$. Its bias at $\theta_0$ is denoted as $A(\theta_0)$,
@@ -58,7 +58,7 @@ The $\sigma^2$ in $C$ is the average of empirical variance estimators from all $
 
 ### 4.1. Data:
 
-Data are based on group-level summary statisticis from AWARD-5, which was an adaptive, dose-finding, seamless Phase 2/3 study of dulaglutide for the treatment of type 2 diabetes mellitus (Geiger et al., 2012). For illustration purposes, we consider a simplified problem of treating Stage 1 as a previous Phase 2 study, while Stage 2 as the new Phase 3 study. Our goal is to accurately estimate the response mean of the selected group dulaglutide 1.5 mg to plan its sample size for Stage 2 based on results in Stage 1. The dosing regimen dulaglutide 1.5 mg was selected as the most efficacious group for further testing in Stage 2 during the actual trial conduct of AWARD-5. 
+Data are based on group-level summary statistics from AWARD-5, which was an adaptive, dose-finding, seamless Phase 2/3 study of dulaglutide for the treatment of type 2 diabetes mellitus (Geiger et al., 2012). For illustration purposes, we consider a simplified problem of treating Stage 1 as a previous Phase 2 study, while Stage 2 as the new Phase 3 study. Our goal is to accurately estimate the response mean of the selected group dulaglutide 1.5 mg to plan its sample size for Stage 2 based on results in Stage 1. The dosing regimen dulaglutide 1.5 mg was selected as the most efficacious group for further testing in Stage 2 during the actual trial conduct of AWARD-5. 
 
 Assessments are based on the primary efficacy endpoint of change from Baseline (CHG) of glycosylated hemoglobin (HbA1c) at Week 52. For notation consistency, we use the negative of CHG (decrease in HbA1c) with a larger value denoting a better response. The table below summarizes the response mean (based on Bayesian posterior mean), the sample size, and the standard deviation (based on Normal approximation of Bayesian 95\% credible intervals) for each of the 7 active treatment groups in Stage 1 of dose selection. 
 
@@ -94,7 +94,7 @@ To test robustness of results from the hybrid estimator, we can generate results
 
 ### 5.2. External Communication
 
-To faciliate external communication to a broader audience, we can utlize diagram or plots to visulize this relatively complicated computational methods. For instance, the plot below illustrate the idea of single bootstrp on the left, and the double bootstrap on the right. The advantage of the double boostrap as compared to the single bootstrap in terms of bias reducition is well demonstrated. 
+To facilitate external communication to a broader audience, we can utilize diagram or plots to visualize this relatively complicated computational methods. For instance, the plot below illustrates the idea of single bootstrap on the left, and the double bootstrap on the right. The advantage of the double boostrap as compared to the single bootstrap in terms of bias reduction is well demonstrated. 
 
 ![Alt text for accessibility](Figure/Bootstrap.png)
 
