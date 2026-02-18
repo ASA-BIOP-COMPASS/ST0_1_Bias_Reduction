@@ -13,19 +13,17 @@ $$X_{i, j} \sim \mathcal{N}\left(\theta_i, \sigma_i^2\right),$$
 
 where $\theta_i$ is the mean and $\sigma_i$ is the standard deviation of the treatment group $i$. We assume that a larger value of $X_{ij}$ corresponds to a better outcome, and $\sigma_i$ is unknown. Denote $X_i  = (X_{i, 1}, \cdots, X_{i, n_i} )$ as the vector of responses from group $i$, and $\boldsymbol{X} = (\boldsymbol{X}_1, \cdots, \boldsymbol{X}_I)$. 
 
-{After obtaining data from multiple treatment groups, the study team will usually select one or two treatment group(s) to confirm findings in Phase 3 studies.} We consider a motivating scenario where all treatment groups have similar safety profiles, and the most efficacious group will be moved to Phase 3. A key question is how to accurately characterize the efficacy of this selected group for sample size calculation. 
+After obtaining data from multiple treatment groups, the study team will usually select one or two treatment group(s) to confirm findings in Phase 3 studies. We consider a motivating scenario where all treatment groups have similar safety profiles, and the most efficacious group will be moved to Phase 3. A key question is how to accurately characterize the efficacy of this selected group for sample size calculation. 
 
-The corresponding statistical question is to use observed data $\left( \boldsymbol{X}_1, \cdots, \boldsymbol{X}_I \right)$ to estimate the parameter of interest $\theta_{max}$, defined as,
-\begin{equation}
-\label{equ:theta_max}
-\theta_{max} = \max(\theta_1, \cdots, \theta_I). 
-\end{equation}
+The corresponding statistical question is to use observed data $\left( X_1, \cdots, X_I \right)$ to estimate the parameter of interest $\theta_{max}$, defined as,
+
+$$\theta_{max} = \max(\theta_1, \cdots, \theta_I). $$
+
 A traditional estimator $\widehat{\theta}$ is commonly used in practice to estimate $\theta_{max}$:
-\begin{equation}
-\label{equ:theta_naive}
-\widehat{\theta}(\boldsymbol{X}) = \max\left[\widetilde{\theta}(\boldsymbol{X}_1), \cdots, \widetilde{\theta}(\boldsymbol{X}_I)\right], 
-\end{equation}
-where $\widetilde{\theta}(x)$ is the sample mean of $x$, and $\widetilde{\theta}(\boldsymbol{X}_i)$ as an unbiased estimator of $\theta_i$. However, $\widehat{\theta}(\boldsymbol{X})$ may overestimate $\theta_{max}$ in finite-samples. Even though $\widetilde{\theta}(\boldsymbol{X}_i)$ can accurately estimate $\theta_i$ with no bias for each treatment group $i$, one does not know which treatment group has the highest true response mean $\theta_i$ in (\ref{equ:theta_max}) based on observed data.
+
+$$\widehat{\theta}(\boldsymbol{X}) = \max\left[\widetilde{\theta}(\boldsymbol{X}_1), \cdots, \widetilde{\theta}(\boldsymbol{X}_I)\right], $$
+
+where $\widetilde{\theta}(x)$ is the sample mean of $x$, and $\widetilde{\theta}(X_i)$ as an unbiased estimator of $\theta_i$. However, $\widehat{\theta}(\boldsymbol{X})$ may overestimate $\theta_{max}$ in finite-samples. Even though $\widetilde{\theta}(\boldsymbol{X}_i)$ can accurately estimate $\theta_i$ with no bias for each treatment group $i$, one does not know which treatment group has the highest true response mean $\theta_i$ in (\ref{equ:theta_max}) based on observed data.
 
 
 
