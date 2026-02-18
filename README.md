@@ -43,7 +43,7 @@ $$\widehat{\theta}^{(1)}(\boldsymbol{X}) = \widehat{\theta}(\boldsymbol{X}) - \w
 
 To further reduce bias, we can iteratively apply the above approach with $\widehat{\theta}^{(1)}(X)$ as the initial estimator to obtain the double Bootstrap estimator $\widehat{\theta}^{(2)}(X)$.
 
-### 3.4. The Double Bootstrap Estimator $\widehat{\theta}^{(2)}(X)$:
+### 3.4. The Hybrid Estimator $\widehat{\theta}^{(2)}_{H}$:
 The following shrinkage estimator is commonly used to reduce MSE when estimating $\theta_{max}$.
 
 $$\widehat{\theta}_{S}(X) = C_{+} \widehat{\theta}(X) + \left(1-C_{+}\right) \widetilde{\theta}(X) $$
@@ -52,8 +52,25 @@ $$ C_{+} = \max(0, C) $$
 
 $$ C = 1- \frac{(I-1)\sigma^2}{\sum_{i=1}^I n_i\left[\widetilde{\theta}(X_i) - \widetilde{\theta}(X)\right]^2} $$
 
-The $\sigma^2$ in $C$ is the average of empirical variance estimators from all $I$ groups. the constant $(I-1)$ is modified from $(I-3)$ for $I\geq 4$ in Hwang (1993)} \citep{hwang1993empirical} {and Lindley (1962)} \citep{Lindley1962} {to accommodate a general setting with $I \geq 2$ as suggested by Carreras and Brannath (2011)
+The $\sigma^2$ in $C$ is the average of empirical variance estimators from all $I$ groups. The proposed hybrid estimators $\widehat{\theta}^{(2)}_{H}$ substitute $\widehat{\theta}$ in by $\widehat{\theta}^{(2)}$.
 
+## 4. A Case Study:
 
+### 4.1. Data:
 
+Data are based on group-level summary statisticis from AWARD-5, which was an adaptive, dose-finding, seamless Phase 2/3 study of dulaglutide for the treatment of type 2 diabetes mellitus (Geiger et al., 2012). For illustration purposes, we consider a simplified problem of treating Stage 1 as a previous Phase 2 study, while Stage 2 as the new Phase 3 study. Our goal is to accurately estimate the response mean of the selected group dulaglutide 1.5 mg to plan its sample size for Stage 2 based on results in Stage 1. The dosing regimen dulaglutide 1.5 mg was selected as the most efficacious group for further testing in Stage 2 during the actual trial conduct of AWARD-5. 
+
+Assessments are based on the primary efficacy endpoint of change from Baseline (CHG) of glycosylated hemoglobin (HbA1c) at Week 52. For notation consistency, we use the negative of CHG (decrease in HbA1c) with a larger value denoting a better response. The table below summarizes the response mean (based on Bayesian posterior mean), the sample size, and the standard deviation (based on Normal approximation of Bayesian 95\% credible intervals) for each of the 7 active treatment groups in Stage 1 of dose selection. 
+
+| Group | -CHG of HbA1c at Week 52 | n | SD |
+| --- | --- | --- | --- |
+  | Dulaglutide 0.25 mg | 0.82 | 13 | 0.55 |
+  | Dulaglutide 0.5	mg | 0.95 | 16 | 0.42 |
+  | Dulaglutide 0.75 mg | 0.93 | 20 | 0.59 |
+  | Dulaglutide 1 mg | 1.00 | 8 | 0.40 |
+  | Dulaglutide 1.5 mg | 1.33 | 18 | 0.67 |
+  | Dulaglutide 2 mg | 1.28 | 24 | 0.49 |
+  | Dulaglutide 3 mg | 1.00 | 10 | 0.42 |
+
+### 4.2. Data:
 
