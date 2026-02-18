@@ -52,7 +52,7 @@ $$ C_{+} = \max(0, C) $$
 
 $$ C = 1- \frac{(I-1)\sigma^2}{\sum_{i=1}^I n_i\left[\widetilde{\theta}(X_i) - \widetilde{\theta}(X)\right]^2} $$
 
-
+The $\sigma^2$ in $C$ is the average of empirical variance estimators from all $I$ groups. the constant $(I-1)$ is modified from $(I-3)$ for $I\geq 4$ in Hwang (1993)} \citep{hwang1993empirical} {and Lindley (1962)} \citep{Lindley1962} {to accommodate a general setting with $I \geq 2$ as suggested by Carreras and Brannath (2011)
 
 
 
