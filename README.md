@@ -72,5 +72,35 @@ Assessments are based on the primary efficacy endpoint of change from Baseline (
   | Dulaglutide 2 mg | 1.28 | 24 | 0.49 |
   | Dulaglutide 3 mg | 1.00 | 10 | 0.42 |
 
-### 4.2. Data:
+### 4.2. Analysis:
+
+Here are steps to conduct analysis of the hybrid estimator. 
+1.  **Clone this repository** (or download the files).
+2.  Open `Code/COMPASS_Hybrid_Estimator.R` in **RStudio** or your preferred R environment.
+3.  Run the script.
+4.  Obtain results of the hybrid estimator $\widehat{\theta}^{(2)}_{H}$.
+
+### 4.3. Results:
+
+The traditional estimator $\widehat{\theta}=1.33$ is the maximum of -CHGs from 7 active treatment groups. The hybrid estimator $\widehat{\theta}^{(2)}_H = 1.16$ provides a more conservative estimator of the efficacy of the selected group. 
+
+## 5. :
+
+### 4.1. Data:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
