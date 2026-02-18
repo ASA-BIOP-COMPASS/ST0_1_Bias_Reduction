@@ -98,7 +98,11 @@ To faciliate external communication to a broader audience, we can utlize diagram
 
 ![Alt text for accessibility](Figure/Bootstrap.png)
 
+## Reference:
 
+Zhan, T. (2024). A class of computational methods to reduce selection bias when designing Phase 3 clinical trials. Statistics in Medicine, 43(10), 1993-2006.
+
+Geiger, M. J., Skrivanek, Z., Gaydos, B., Chien, J., Berry, S., Berry, D., & Anderson Jr, J. H. (2012). An adaptive, dose-finding, seamless phase 2/3 study of a long-acting glucagon-like peptide-1 analog (dulaglutide): trial design and baseline characteristics.
 
 
 
