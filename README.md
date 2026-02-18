@@ -92,9 +92,9 @@ In this section, we discuss some points to consider to properly conduct this com
 
 To test robustness of results from the hybrid estimator, we can generate results from the double bootstrap method. Based on the sample code, the double bootstrap estimator ($\widehat{\theta}^{(2)} = 1.21$) has a consistent results with the hybrid estimator ($\widehat{\theta}^{(2)}_H = 1.16$). Both results are conservative than the traditional estimator ($\widehat{\theta}=1.33$). Moreover, clinical or domain knowledge can be incorporated to this process of study design assumption formulation. 
 
-### 5.2. Interpretation
+### 5.2. External Communication
 
-
+To faciliate external communication to a broader audience, we can utlize diagram or plots to visulize this relatively complicated computational methods. For instance, the plot below illustrate the idea of single bootstrp on the left, and the double bootstrap on the right. The advantage of the double boostrap as compared to the single bootstrap in terms of bias reducition is well demonstrated. 
 
 ![Alt text for accessibility](Figure/Bootstrap.png)
 
