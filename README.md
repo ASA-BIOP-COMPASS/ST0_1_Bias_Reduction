@@ -84,9 +84,19 @@ Here are steps to conduct analysis of the hybrid estimator.
 
 The traditional estimator $\widehat{\theta}=1.33$ is the maximum of -CHGs from 7 active treatment groups. The hybrid estimator $\widehat{\theta}^{(2)}_H = 1.16$ provides a more conservative estimator of the efficacy of the selected group. 
 
-## 5. :
+## 5. Points to Consider:
 
-### 4.1. Data:
+In this section, we discuss some points to consider to properly conduct this computational method.
+
+### 5.1. Robustness
+
+To test robustness of results from the hybrid estimator, we can generate results from the double bootstrap method. Based on the same code, the double bootstrap estimator ($\widehat{\theta}^{(2)} = 1.21$) has a consistent results with the hybrid estimator ($\widehat{\theta}^{(2)}_H = 1.16$).
+
+
+### 5.2. Interpretation
+
+![Alt text for accessibility](Figure/Bootstrap.png)
+
 
 
 
